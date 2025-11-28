@@ -5,13 +5,16 @@ export default function MyWork() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/projects")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/projects`)
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        console.error("Projects fetch error:", err);
+        setLoading(false);
+      });
   }, []);
 
   if (loading) return <p>Loading projects...</p>;
@@ -24,13 +27,8 @@ export default function MyWork() {
         {projects.map((p, i) => (
           <div key={i} className="card slide-up">
             <h3>{p.title}</h3>
-
-            {/* FIX: tech array displayed correctly */}
             <p className="tech">Tech: {p.tech.join(", ")}</p>
-
             <p className="year">Year: {p.year}</p>
-
-            {/* FIX: using real backend description */}
             <p className="description">{p.description}</p>
           </div>
         ))}
