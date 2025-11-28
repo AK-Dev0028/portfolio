@@ -10,7 +10,8 @@ app = FastAPI()
 # -----------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # replace "*" with your frontend URL in production
+        allow_origins=["https://portfolio-ak-frontend.onrender.com"],  # replace with your frontend URL
+
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
