@@ -1,0 +1,224 @@
+/* ---------- Global ---------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* ---------- Loading ---------- */
+.loading {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 22px;
+}
+
+/* ---------- Profile Section ---------- */
+.profile h1 {
+  font-size: 3rem;
+  margin-bottom: 5px;
+  color: #4da9ff;
+}
+
+.profile h2 {
+  font-size: 1.8rem;
+  color: #ccc;
+}
+
+.profile p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+/* ---------- Projects ---------- */
+.project-title {
+  margin-top: 60px;
+  font-size: 2.2rem;
+  color: #4da9ff;
+  text-align: center;
+}
+
+.projects {
+  margin-top: 30px;
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 700px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Project Card ---------- */
+.card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 15px #4da9ff;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #4da9ff;
+}
+
+.tech {
+  margin-top: 8px;
+  color: #bbb;
+}
+
+.year {
+  margin-top: 5px;
+  color: #888;
+}
+
+/* ---------- Animations ---------- */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;     /* makes circle */
+  object-fit: cover;
+  border: 3px solid #4aa3ff;
+  margin-bottom: 15px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: flex-end; /* aligns items to the right */
+  gap: 25px;                 /* space between links */
+  background-color: #1a1a1a; /* dark background */
+  padding: 15px 30px;        /* vertical and horizontal padding */
+  position: sticky;          /* stays on top when scrolling */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* subtle shadow */
+}
+
+/* Navbar links */
+.navbar a {
+  color: #4aa3ff;            /* nice blue color */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease; /* smooth hover effect */
+}
+
+/* Hover effect */
+.navbar a:hover {
+  color: #fff;               /* white on hover */
+  transform: scale(1.1);     /* slight grow animation */
+}
+
+/* Active link (optional) */
+.navbar a.active {
+  border-bottom: 2px solid #4aa3ff;
+  padding-bottom: 2px;
+}
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.contact-form button {
+  padding: 10px;
+  background-color: #4aa3ff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #357ab8;
+  transform: scale(1.05);
+}
+
+.status {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
+
+.download-resume {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.download-resume button {
+  padding: 10px 25px;
+  background-color: #4aa3ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.download-resume button:hover {
+  background-color: #357ab8;
+  transform: scale(1.05);
+}

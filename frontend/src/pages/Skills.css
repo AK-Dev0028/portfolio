@@ -1,0 +1,113 @@
+/* ---------- Skills Page (Dark Theme) ---------- */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+/* Page container */
+.skills-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+/* Header */
+.skills-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.skills-header h1 {
+  font-size: 3rem;
+  color: #4da9ff;
+}
+
+.skills-header p {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 650px;
+  margin: 10px auto 0;
+  line-height: 1.6;
+}
+
+/* Grid layout */
+.skills-grid {
+  display: grid;
+  gap: 25px;
+}
+
+@media (min-width: 700px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Skill Card */
+.skill-card {
+  background: #1a1a1a;
+  border: 1px solid #222;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #000;
+  transition: 0.3s ease;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 15px #4da9ff;
+}
+
+/* Skill Category Title */
+.skill-card h2 {
+  color: #4da9ff;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+/* List */
+.skill-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-card ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 8px;
+}
+
+/* Bullet Dot */
+.skill-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #4da9ff;
+  border-radius: 50%;
+}
+
+/* Footer */
+.skills-footer {
+  text-align: center;
+  margin-top: 50px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

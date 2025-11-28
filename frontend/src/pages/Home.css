@@ -1,0 +1,23 @@
+.bio {
+  font-size: 18px;
+  color: #333;
+  white-space: pre-line;
+  overflow: hidden;
+  border-right: 2px solid #4aa3ff;
+  max-width: 600px;
+
+  /* Typing animation 4s + cursor blink for only 4s */
+  animation: typing 4s steps(80, end), blink 0.75s step-end 4s;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { height: 0; }
+  to { height: 200px; } /* Increase if text is longer */
+}
+
+/* Cursor blink */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+  
