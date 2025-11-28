@@ -10,7 +10,7 @@ export default function Contact() {
       {/* Contact Info Section */}
       <div className="contact-info">
         <p>Email: <a href="mailto:akhileshmehta2103@gmail.com">akhileshmehta2103@gmail.com</a></p>
-        <p>Phone: <a href="tel:+918091798694">+91 8091798694</a></p>
+        <p>Phone: <a href="tel:+918091798694">+91 8091798695</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/akhilesh-mehta" target="_blank" rel="noopener noreferrer">linkedin.com/in/akhilesh-mehta</a></p>
         <p>GitHub: <a href="https://github.com/akhileshmehta" target="_blank" rel="noopener noreferrer">github.com/akhileshmehta</a></p>
       </div>
