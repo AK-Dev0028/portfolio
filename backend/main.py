@@ -1,7 +1,12 @@
-from fastapi import FastAPI
+
+
+
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from starlette.responses import FileResponse, JSONResponse
+import os
 
 app = FastAPI()
 
@@ -10,14 +15,14 @@ app = FastAPI()
 # -----------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # replace "*" with your frontend URL in production
+    allow_origins=["*"],  # Replace with frontend domain in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # -----------------------
-# Serve static files (resume)
+# Serve static files (React build + resume)
 # -----------------------
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -29,7 +34,7 @@ def get_profile():
     return {
         "name": "Akhilesh Mehta",
         "email": "akhileshmehta2103@gmail.com",
-        "role": " Developer",
+        "role": "Developer",
         "bio": (
             "Highly motivated fresher with strong skills in Java, Spring Boot, HTML/CSS, "
             "JavaScript, React, and other modern web technologies. Passionate about developing "
@@ -37,7 +42,6 @@ def get_profile():
             "integrating RESTful APIs, and working with databases. Eager to contribute to innovative projects "
             "and continuously learn new technologies in a collaborative environment."
         ),
-        # Resume URL exposed to frontend
         "resume_url": "/static/resume.pdf"
     }
 
@@ -59,7 +63,7 @@ def get_projects():
     ]
 
 # -----------------------
-# Contact POST endpoint
+# Contact POST
 # -----------------------
 class Contact(BaseModel):
     name: str
@@ -71,8 +75,18 @@ async def contact(c: Contact):
     return {"status": "ok", "msg": f"Message received from {c.name} ({c.email})"}
 
 # -----------------------
-# Optional: Root endpoint
+# Serve React index.html
 # -----------------------
-@app.get("/")
-def root():
-    return {"message": "Welcome to Akhilesh Mehta Portfolio Backend"}
+@app.get("/", response_class=FileResponse)
+def serve_react():
+    return FileResponse("static/index.html", media_type="text/html")
+
+# -----------------------
+# Catch-all for React Router (SPA), excluding /api paths
+# -----------------------
+@app.get("/{full_path:path}", response_class=FileResponse)
+def catch_all(full_path: str):
+    if full_path.startswith("api"):
+        return JSONResponse(status_code=404, content={"detail": "API route not found"})
+    index_path = os.path.join("static", "index.html")
+    return FileResponse(index_path, media_type="text/html")

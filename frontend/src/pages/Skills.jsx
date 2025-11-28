@@ -6,8 +6,8 @@ export default function SkillsPage() {
     { category: "Programming Languages", items: ["Java", "Python"] },
     { category: "Backend", items: ["Spring Boot", "Django", "Hibernate", "REST APIs"] },
     { category: "Frontend", items: ["HTML", "CSS", "React", "Thymeleaf"] },
-    { category: "Core Concepts", items: ["OOPs"] },
-    { category: "Tools & Others", items: ["Git", "GitHub", "MySQL"] }
+    { category: "Core Concepts", items: ["OOPs" ,"Core Java"] },
+    { category: "Tools & Others", items: [ "GitHub", "MySQL"] }
   ];
 
   return (
