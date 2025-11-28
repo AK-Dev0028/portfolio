@@ -10,8 +10,7 @@ app = FastAPI()
 # -----------------------
 app.add_middleware(
     CORSMiddleware,
-        allow_origins=["https://portfolio-ak-frontend.onrender.com"],  # replace with your frontend URL
-
+    allow_origins=["*"],  # replace "*" with your frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -30,7 +29,7 @@ def get_profile():
     return {
         "name": "Akhilesh Mehta",
         "email": "akhileshmehta2103@gmail.com",
-        "role": "Full Stack Developer",
+        "role": " Developer",
         "bio": (
             "Highly motivated fresher with strong skills in Java, Spring Boot, HTML/CSS, "
             "JavaScript, React, and other modern web technologies. Passionate about developing "
